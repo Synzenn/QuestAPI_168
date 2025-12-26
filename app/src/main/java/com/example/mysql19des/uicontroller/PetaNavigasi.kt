@@ -1,16 +1,22 @@
 package com.example.mysql19des.uicontroller
 
-
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.mysql19des.uicontroller.route.DestinasiEntry
 import com.example.mysql19des.uicontroller.route.DestinasiHome
+import com.example.mysql19des.uicontroller.route.DestinasiDetail
+import com.example.mysql19des.uicontroller.route.DestinasiEdit
+import com.example.mysql19des.view.DetailSiswaScreen
+import com.example.mysql19des.view.EditSiswaScreen
 import com.example.mysql19des.view.EntrySiswaScreen
 import com.example.mysql19des.view.HomeScreen
+
 
 @Composable
 fun DataSiswaApp(
@@ -34,7 +40,7 @@ fun HostNavigasi(
             HomeScreen(
                 navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
                 navigateToItemUpdate = {
-                    navController.navigate("${DestinasiEntry.route}/${it}")
+                    navController.navigate("${DestinasiDetail.route}/${it}")
                 }
             )
         }
@@ -44,6 +50,8 @@ fun HostNavigasi(
                     navController.navigate(DestinasiHome.route)
                 }
             )
+        }
+
         }
     }
 }

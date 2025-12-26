@@ -1,11 +1,13 @@
 package com.example.mysql19des.viewmodel.provider
 
-
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.mysql19des.repositori.AplikasiDataSiswa
+import com.example.mysql19des.viewmodel.DetailViewModel
+import com.example.mysql19des.viewmodel.EditViewModel
 import com.example.mysql19des.viewmodel.EntryViewModel
 import com.example.mysql19des.viewmodel.HomeViewModel
 
@@ -26,6 +28,15 @@ object PenyediaViewModel {
             EntryViewModel(
                 aplikasiDataSiswa().container
                     .repositoryDataSiswa
+            )
+        }
+        initializer {
+            DetailViewModel(
+                this.createSavedStateHandle(),
+                aplikasiDataSiswa().container.repositoryDataSiswa
+            )
+        }
+
             )
         }
     }
